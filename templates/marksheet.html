@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .center{
+            background-color: wheat;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
+</head>
+<body>
+    <h3 class="center">Marksheet</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{form}}
+    </br>
+</br>
+    <div>
+        <a href="{% url 'marksheet' %}">
+        <button type="submit">Submit</button>
+        </a>
+        <label>Total Marks Obtained</label>  
+        <input type="text" name="Marks obtained" value={{total_marks_obtained}}>
+    </br>
+        <label>Percentage</label>
+</br>
+    <input type="text"  value={{perc}}>
+</br>
+    <label>Division</label>
+</br>
+    <input type="text"  value={{grade}}>    
+    </div>
+    </form>
+    <a href="{% url 'home' %}"> 
+        <button>Home</button>
+    </a>
+</body>
+</html>
