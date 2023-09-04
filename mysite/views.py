@@ -2,6 +2,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import userforms
 from .forms import EvenOddform, Marksheet
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
 def home(request):
     data={
         'title':'Home Page',
@@ -15,9 +17,25 @@ def home(request):
     return render(request, 'index.html', data)
 
 
+def loginuser(request):
+    if request.method=="POST":
+        username=request.POST.get('username')
+        password=request.POST.get('password') 
+        user = authenticate(username=username, password=password)    
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'login.html')
+    return render(request,'login.html') 
+
+def logoutuser(reques):
+    logout(reques)
+    return redirect('login')  
 
 
-def EvenOdd(request):
+
+def EvenOdd(request):        
     ev = EvenOddform()
     c=''
     try:

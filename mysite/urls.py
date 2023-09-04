@@ -20,7 +20,9 @@ from mysite import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
+    path('home', views.home, name='home'),
+    path('',views.loginuser, name='login'),
+    path('logout/',views.logoutuser, name='logout'),
     path('form/', views.form),
     path('base/', views.base),
     path('calculator/', views.calculator, name='calculator'),

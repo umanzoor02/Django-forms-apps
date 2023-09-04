@@ -19,53 +19,9 @@
     <link rel="stylesheet" href="static/a.html">
 </head>
 <body>
-    <div class="main">
-    <h1 class="container pt-5 mt-15 text-align:center">Learnig Django | Basics</h1>
-    </div>
-</br>
-</br>
-</br>
-<a href="calculator">
-    <button>Calculator</button>
-  </a>
-</br>
-</br>
-<a href="{% url 'EvenOdd' %}">
-    <button>Check EvenOdd</button>
-</a>
-</br>
-</br>
-<a href="{%url 'marksheet'  %}">
-    <button>Marksheet</button>
-</a>
-    <!-- <button href="calculator/">Calculator</button> -->
-    <!-- {% for n in clist %}
-    <div>{{n}}</div>
-    {% endfor %}
-    </br>
-    <table border="1" cellpading="10">
-        <tr>
-            <th padding: 10px;>Name</th>
-            <th padding: 10px;>Phone</th>
-        </tr>
-        {% for l in s_details %}
-        <tr>
-            <th padding: 10px;>{{l.name}}</th>
-            <th padding: 10px;>{{l.phone}}</th>
-        </tr>
-        {% endfor %}
-
-        
-    </table>
-
-   {% if numbers|length > 0 %} 
-        {% for i in numbers %}
-            {% if i > 20 %}
-            <div>{{i}}</div>
-            {% endif %}
-        {% endfor %}
-    {% else %}
-        No Data
-    {% endif %} -->
+     {% include 'header.html' %}
+     <a href='{% url 'logout' %}'>
+     <button type=submit > Logout </button>
+     </a>
 </body>
 </html>

@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
 </head>
 <body>
+    {% include 'header.html' %}
     <h3 class="center">Marksheet</h3>
     <form method="post">
         {% csrf_token %}
